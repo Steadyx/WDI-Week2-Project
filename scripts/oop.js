@@ -29,7 +29,6 @@ function Controls(left, right, up, down) {
   this.down = down;
 
 }
-
 function RandomElements(element1, element2){
   this.element1 = element1;
   this.element2 = element2;
@@ -75,6 +74,7 @@ controls.down = function() {
   requestAnimationFrame(controls.down);
   playerPos.y += 5;
   player.element.style.top = parseInt(playerPos.y) + 'px';
+
 }
 
 window.addEventListener('keydown', function(e) {
