@@ -1,23 +1,100 @@
 body {
   margin: 0;
+  overflow: hidden;
 }
 .start-point {
   width: 100%;
-  height: 10em;
-  background-color: rgb(135, 199, 227);
+  height: auto;
+  /*background-color: rgb(135, 199, 227);*/
+  display: inline-flex;
+  justify-content: space-between;
+}
+/*.tutorial-bg{
+  width: 100%;
+  height:100vh;
+  background-color: rgba(61, 61, 61, 0.64);
+  position: fixed;
+  z-index: 40;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tutorial {
+  width: 50%;
+  height: auto;
+  background-color: rgba(21, 185, 208, 0.75);
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.86);
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 2em;
+  font-size: 2.5em;
+  flex-direction: column;
+  position: fixed;
+  top: 10%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 100;
+}*/
+.score, .lives{
+  font-size: 2em;
+  width: 5em;
+  height: 2em;
+  background-color: rgba(87, 196, 250, 0.42);
+  z-index: 1000;
+  color: white;
+  padding: 1em;
+  border-radius: 2%;
+}
+.score p, .lives p{
+  text-shadow: 0 0 10px rgba(43, 43, 43, 0.90);
+}
+
+.lives{
 }
 .container {
   width: 100vw;
-  height: 100vh;
+  height: auto;
   background-color: rgb(149, 149, 149);
+  position: absolute;
+  top: 0;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+}
+.back-img{
+  background: url('../images/space.jpg');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}
+.random {
+  width: 2.5em;
+  height: 100px;
+  /*background-color: rgb(19, 218, 128);*/
+  position: relative;
+  flex-direction: column;
+  animation: fadein;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  margin-top: 20vh;
+  background-image: url('../images/asteroid.png');
+  background-size: contain;
+
 }
 .box {
   width: 100px;
   height: 100px;
   background-color: rgb(28, 28, 28);
-  position: absolute;
+  align-self:center;
+  position: fixed;
+  left: 50%;
+  top:0;
+  z-index: 200;
+  background: url('../images/spaceship.GIF');
+  background-size: cover;
 }
