@@ -25,14 +25,11 @@ var player = new Player(document.querySelector('.box'));
 
 game.randomDiv = function(random) {
   this.container = document.querySelector('.container');
-  if (player.lives >= 0) {
-    for (var i = 0; i < i++; i++) {
-      this.random = document.createElement('div');
-      this.random.className = 'random';
-      this.container.appendChild(this.random);
-    }
+  for (var i = 0; i < 200; i++) {
+    this.random = document.createElement('div');
+    this.random.className = 'random';
+    this.container.appendChild(this.random);
   }
-
 }
 game.randomDiv();
 
@@ -88,6 +85,8 @@ game.setTransition = function(lotsOfBlocks) {
   this.gameAnimations = function() {
     this.animationsId = setInterval(function() {
       var self = this;
+      // requestAnimationFrame(self.gameAnimations);
+
       self.position = player.element.getBoundingClientRect();
       self.position.top = player.element.top;
       self.position.left = player.element.left;
@@ -96,55 +95,52 @@ game.setTransition = function(lotsOfBlocks) {
 
       self.total = self.position.top + self.position.height;
       self.total2 = self.position.left + self.position.width;
-      if (player.lives >= 0) {
-        for (var i = 0; i < i++; i++) {
+      for (var i = 0; i < 200; i++) {
 
-          self.lotsOfBlocks[i].style.top = self.goUp-- + 'px';
+        self.lotsOfBlocks[i].style.transform = 'translateY('+self.goUp-- + 'px)';
 
-          // Check for collision of all sides
-          self.computerPosition = self.lotsOfBlocks[i].getBoundingClientRect();
+        // Check for collision of all sides
+        self.computerPosition = self.lotsOfBlocks[i].getBoundingClientRect();
 
-          self.computerPosition.top = self.lotsOfBlocks[i].top;
-          self.computerPosition.left = self.lotsOfBlocks[i].left;
-          self.computerPosition.width = self.lotsOfBlocks[i].height;
-          self.computerPosition.height = self.lotsOfBlocks[i].style.width;
+        self.computerPosition.top = self.lotsOfBlocks[i].top;
+        self.computerPosition.left = self.lotsOfBlocks[i].left;
+        self.computerPosition.width = self.lotsOfBlocks[i].height;
+        self.computerPosition.height = self.lotsOfBlocks[i].style.width;
 
-          self.total3 = self.computerPosition.top + self.computerPosition.height;
-          self.total4 = self.computerPosition.left + self.computerPosition.width;
+        self.total3 = self.computerPosition.top + self.computerPosition.height;
+        self.total4 = self.computerPosition.left + self.computerPosition.width;
 
 
-          if (self.total < self.computerPosition.top || self.position.top > self.total3 ||
-            self.total2 < self.computerPosition.left || self.position.left > self.total4) {
+        if (self.total < self.computerPosition.top || self.position.top > self.total3 ||
+          self.total2 < self.computerPosition.left || self.position.left > self.total4) {
 
-          } else {
+        } else {
 
-            self.lives.innerHTML = 'Lives: ' + player.lives--;
-            self.score.innerHTML = 'Score: ' + parseInt(player.score--);
-            audioHit.play();
-            audioHit.volume = 0.1;
-            if (!player.lives <= 0) {
-              console.log('gameover');
-              player.score = 0 - 1;
-              clearInterval(game.animationsId);
-              myAudio.load();
-              self.score.innerHTML = 'Score : ' + 0;
-              self.startOver.style.display = 'inherit';
-              self.container.removeChild(self.lotsOfBlocks[i]);
-
-            }
-            if (player.highScore > player.score) {
-
-              self.highScore.innerHTML = 'High Score: ' + player.highScore;
-
-            }
+          self.lives.innerHTML = 'Lives: ' + player.lives--;
+          self.score.innerHTML = 'Score: ' + parseInt(player.score--);
+          audioHit.play();
+          audioHit.volume = 0.1;
+          if (player.lives <= 0) {
+            console.log('gameover');
+            player.score = 0 - 1;
+            clearInterval(game.animationsId);
+            myAudio.load();
+            self.score.innerHTML = 'Score : ' + 0;
+            self.startOver.style.display = 'inherit';
+            self.container.removeChild(self.lotsOfBlocks[i]);
 
           }
-          self.score.innerHTML = 'Score : ' + parseInt(player.score += 1 / 60);
-          player.highScore = parseInt(player.score);
-        }
-      }
+          if (player.highScore > player.score) {
 
-    }.bind(self), 100);
+            self.highScore.innerHTML = 'High Score: ' + player.highScore;
+
+          }
+
+        }
+        self.score.innerHTML = 'Score : ' + parseInt(player.score += 1 / 60);
+        player.highScore = parseInt(player.score);
+      }
+    }.bind(self), 175);
   }
 }
 
@@ -185,13 +181,13 @@ Player.prototype.move = function(key) {
   switch (key) {
     case 'ArrowLeft':
       // if element is > 150px form left of screen
-      if (this.element.offsetLeft >= 100) {
+      if (this.element.offsetLeft >= 360) {
         this.element.style.left = this.element.offsetLeft - 150 + 'px';
       }
       break;
     case 'ArrowRight':
       // if elementis < 150px from right of screen
-      if (this.element.offsetLeft < window.innerWidth - 200) {
+      if (this.element.offsetLeft < window.innerWidth - 400) {
         this.element.style.left = this.element.offsetLeft + 150 + 'px';
       }
       break;
