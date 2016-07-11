@@ -144,14 +144,6 @@ game.setTransition = function(lotsOfBlocks) {
           myAudio.volume = 0.1;
           break;
 
-          //   case 'ArrowUp':
-          //     this.element.style.top = this.element.offsetTop - 100 + 'px'
-          //
-          //     break;
-          //   case 'ArrowDown':
-          //     this.element.style.top = this.element.offsetTop + 100 + 'px'
-          //     break;
-          //
       }
 
     }
