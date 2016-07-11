@@ -57,9 +57,7 @@ game.reset = function() {
   this.lotsOfBlocks = document.querySelectorAll('.random');
   this.gameOverScreen = document.querySelector('.gameover-bg');
   this.restart.addEventListener('click', function() {
-    // for (var i = 0; i < this.lotsOfBlocks.length; i++) {
-    //   this.container.removeChild(this.lotsOfBlocks[i]);
-    // }
+
     this.gameOverScreen.style.display = 'none';
     myAudio.load();
     game.placeRanomDivs();
