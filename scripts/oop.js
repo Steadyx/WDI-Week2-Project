@@ -96,7 +96,6 @@ game.setTransition = function(lotsOfBlocks) {
 
         self.lotsOfBlocks[i].style.top = self.goUp-- + 'px';
 
-        //Get Position of all sides
         // Check for collision of all sides
         self.computerPosition = self.lotsOfBlocks[i].getBoundingClientRect();
 
@@ -180,6 +179,7 @@ Player.prototype.move = function(key) {
         myAudio.play();
         game.gameAnimations();
         myAudio.volume = .2;
+        game
         break;
 
 
