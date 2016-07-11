@@ -12,8 +12,9 @@
 <body>
   <div class="start-point">
     <div class="score">
+      <p id="high-score">High Score: 0</p>
       <p id="actual-score">
-        Score:
+        Score: 0
       </p>
     </div>
     <div class="lives">
@@ -28,22 +29,38 @@
     <div class="back-img">
 
     </div>
-    <!-- <div class="tutorial-bg">
-      <div class="tutorial">
-        <p>
-          Welcome to my game,
-          <br /> to play all you have do is use the
-          <br> left and right arrow keys on your keyboard.
-          <br>
-          <h1>Try to stay alive as long as you can!</h1>
-        </p>
-        <button type="button" name="button">Okay?</button>
-      </div> -->
-    <!-- </div> -->
 
+    <div class="tutorial-bg">
+      <div class="tutorial">
+        <h2>The Asteroid Game</h2>
+        <p>
+
+          <br /> To play all you have do is use the
+          <br> left &#8592; and right &rarr; arrow keys on your keyboard.
+          <br>
+          <br> Press the <strong>Enter</strong> Key to begin the game.
+        </p>
+        <span>After closing the box.... and don't press it twice.</span>
+        <h4>Try to stay alive as long as you can!</h4>
+        <button type="button" name="button" class="button">Okay?</button>
+      </div>
+    </div>
+    <div class="gameover-bg">
+      <div class="gameover">
+        <h2>Game Over!</h2>
+        <p>
+          You have lost to many lives, the game is over. :(
+        </p>
+          <p>
+            Click the button to restart the game.
+          </p>
+        <button type="button" name="button" class="gameover-button">Okay?</button>
+      </div>
+
+    </div>
   </div>
   <script src="scripts/oop.js" charset="utf-8"></script>
-  <embed src="music/div.mp3" autostart="true" hidden="true">
+  <!-- <embed src="music/div.mp3" autostart="true" hidden="true"> -->
 </body>
 
 </html>
