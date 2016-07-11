@@ -30,12 +30,10 @@ game.placeRanomDivs = function(randomDiv) {
   this.container = document.querySelector('.container');
   for (var i = 0; i < this.generatedDivs.length; i++) {
     this.left = Math.floor(Math.random() * parseInt(this.container.offsetWidth / 1.5)) + 'px'
-    this.top = Math.floor(Math.random() * parseInt(this.container.offsetTop)) + 'px';
     this.width = Math.floor(Math.random() * 800) + 'px';
     this.height = Math.floor(Math.random() * 800) + 'px';
 
     this.generatedDivs[i].style.left = this.left;
-    this.generatedDivs[i].style.top = this.top++;
 
     this.generatedDivs[i].style.width = this.width;
     this.generatedDivs[i].style.height = this.height;
@@ -56,6 +54,7 @@ game.setTransition = function(lotsOfBlocks) {
     this.startOver = document.querySelector('.gameover-bg');
     var self = this;
     this.goUp = 0;
+
     this.gameAnimations = setInterval(function() {
         self.position = player.element.getBoundingClientRect();
         self.position.top = player.element.top;
@@ -88,25 +87,28 @@ game.setTransition = function(lotsOfBlocks) {
           } else {
 
             self.lives.innerHTML = 'Lives: ' + player.lives--;
-            self.score.innerHTML = 'Score : ' + parseInt(player.score--);
-
+            self.score.innerHTML = 'Score: ' + parseInt(player.score--);
 
               if (player.lives < 0) {
                 console.log('gameover');
+                player.score = 0 - 1;
                 clearInterval(self.gameAnimations);
                 myAudio.pause();
-                self.highScore.innerHTML = 'High-Score: ' + parseInt(player.score++);
                 self.score.innerHTML = 'Score : ' + 0;
+                self.highScore.innerHTML = 'High score : ' + parseInt(player.highScore);
                 self.startOver.style.display = 'inherit';
-                self.lotsOfBlocks[i].style.top = self.placeRanomDivs.top;
+                self.lotsOfBlocks[i].style.top = '-1000';
               }
 
             }
-            self.score.innerHTML = 'Score : ' + parseInt(player.score+=1 / 60);
+             self.score.innerHTML = 'Score : ' + parseInt(player.score += 1 / 60);
+             player.highScore =  parseInt(player.score);
           }
+
         }, 150);
     }
 
+    console.log(game.placeRanomDivs.top);
 
 
     game.gameNotifications = function() {
@@ -151,6 +153,7 @@ game.setTransition = function(lotsOfBlocks) {
           //     break;
           //
       }
+
     }
 
     document.onkeydown = function(event) {
