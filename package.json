@@ -18,7 +18,5 @@
   },
   "homepage": "https://github.com/Steadyx/WDI-Week2-Project#readme",
   "dependencies": {
-    "node": "0.0.0",
-    "static": "^2.0.0"
   }
 }
