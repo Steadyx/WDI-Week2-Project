@@ -5,7 +5,7 @@ var game = game || {};
 function Player(element) {
 
   this.element = element;
-  this.lives = 20;
+  this.lives = 10;
   this.score = 0;
   this.highScore = 0;
 
@@ -54,7 +54,7 @@ game.reset = function() {
   this.restart = document.querySelector('.restart');
   this.container = document.querySelector('.container');
   this.lives = document.querySelector('.lives');
-  this.lives.innerHTML = 'Lives ' + 20;
+  this.lives.innerHTML = 'Lives ' + 10;
   this.lotsOfBlocks = document.querySelectorAll('.random');
   this.gameOverScreen = document.querySelector('.gameover-bg');
   this.restart.addEventListener('click', function() {
@@ -63,8 +63,8 @@ game.reset = function() {
     myAudio.load();
     game.placeRanomDivs();
     console.log(player.lives)
-    this.lives.innerHTML = 'Lives : ' + 20;
-    player.lives = 20;
+    this.lives.innerHTML = 'Lives : ' + 10;
+    player.lives = 10;
     game.started = false;
   }.bind(this));
 
@@ -75,7 +75,7 @@ game.setTransition = function(lotsOfBlocks) {
 
   this.lotsOfBlocks = document.querySelectorAll('.random');
   this.score = document.getElementById('actual-score');
-  this.highScore = document.querySelector('high-score');
+  this.highScore = document.querySelector('.high-score');
   this.container = document.querySelector('.container');
   this.lives = document.querySelector('.lives');
   this.startOver = document.querySelector('.gameover-bg');
@@ -94,7 +94,7 @@ game.setTransition = function(lotsOfBlocks) {
 
       self.total = self.position.top + self.position.height;
       self.total2 = self.position.left + self.position.width;
-      for (var i = 0; i < 200; i++) {
+      for (var i = 0; i < 300; i++) {
 
         self.lotsOfBlocks[i].style.transform = 'translateY('+self.goUp-- + 'px)';
 
@@ -129,17 +129,16 @@ game.setTransition = function(lotsOfBlocks) {
             self.container.removeChild(self.lotsOfBlocks[i]);
 
           }
-          if (player.highScore > player.score) {
 
-            self.highScore.innerHTML = 'High Score: ' + player.highScore;
-
-          }
 
         }
+        if ( player.highScore >  player.score && player.lives) {
+          self.highScore.innerHTML = 'High Score: ' +parseInt(player.highScore);
+        }
         self.score.innerHTML = 'Score : ' + parseInt(player.score += 1 / 60);
-        player.highScore = parseInt(player.score);
+         parseInt(player.highScore += 1 / 60)
       }
-    }.bind(self), 175);
+    }.bind(self), 130);
   }
 }
 

@@ -95,12 +95,13 @@ body {
   background-size: cover;
   border-radius: 50%;
   padding: 2em;
+  margin: 2em;
 }
 .box {
   width: 100px;
   height: 100px;
   background-color: rgb(28, 28, 28);
-  align-self: center;
+  align-self: baseline;
   position: absolute;
   left: 50%;
   top: 0;
