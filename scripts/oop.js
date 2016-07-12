@@ -85,7 +85,6 @@ game.setTransition = function(lotsOfBlocks) {
   this.gameAnimations = function() {
     this.animationsId = setInterval(function() {
       var self = this;
-      // requestAnimationFrame(self.gameAnimations);
 
       self.position = player.element.getBoundingClientRect();
       self.position.top = player.element.top;

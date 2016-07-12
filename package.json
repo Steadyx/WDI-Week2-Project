@@ -1,6 +1,9 @@
 {
   "name": "wdi-game",
   "version": "1.0.0",
+  "engines": {
+    "node": "4.4.7"
+  },
   "description": "2d platformer game ",
   "main": "app.js",
   "scripts": {
