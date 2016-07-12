@@ -122,6 +122,7 @@ game.setTransition = function(lotsOfBlocks) {
           if (player.lives <= 0) {
             console.log('gameover');
             player.score = 0 - 1;
+            player.highScore = 0 -1;
             clearInterval(game.animationsId);
             myAudio.load();
             self.score.innerHTML = 'Score : ' + 0;
@@ -132,8 +133,8 @@ game.setTransition = function(lotsOfBlocks) {
 
 
         }
-        if ( player.highScore >  player.score && player.lives) {
-          self.highScore.innerHTML = 'High Score: ' +parseInt(player.highScore);
+        if ( player.highScore >  player.score || player.lives < 0) {
+          self.highScore.innerHTML = 'High Score: ' +parseInt(player.score);
         }
         self.score.innerHTML = 'Score : ' + parseInt(player.score += 1 / 60);
          parseInt(player.highScore += 1 / 60)
