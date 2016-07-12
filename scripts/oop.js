@@ -179,13 +179,11 @@ game.initiate = function(key) {
 Player.prototype.move = function(key) {
   switch (key) {
     case 'ArrowLeft':
-      // if element is > 150px form left of screen
       if (this.element.offsetLeft >= 360) {
         this.element.style.left = this.element.offsetLeft - 150 + 'px';
       }
       break;
     case 'ArrowRight':
-      // if elementis < 150px from right of screen
       if (this.element.offsetLeft < window.innerWidth - 400) {
         this.element.style.left = this.element.offsetLeft + 150 + 'px';
       }
